@@ -28,7 +28,11 @@ struct Position {
 
 impl Position {
     pub fn new() -> Position {
-        Position { x: 0, depth: 0, aim: 0 }
+        Position {
+            x: 0,
+            depth: 0,
+            aim: 0,
+        }
     }
 
     pub fn mov(&mut self, command: Command) {
@@ -36,19 +40,21 @@ impl Position {
             Command::Forward(n) => {
                 self.x += n;
                 self.depth += self.aim * n;
-            },
+            }
             Command::Down(n) => {
                 self.aim += n;
-            },
+            }
             Command::Up(n) => {
                 self.aim -= n;
-            },
+            }
         };
     }
 }
 
 pub fn main() {
-    let data = include_str!("../../data/2.txt").split("\n").collect::<Vec<_>>();
+    let data = include_str!("../../data/2.txt")
+        .split('\n')
+        .collect::<Vec<_>>();
     println!("Result: {}", challenge2(&data));
 }
 
@@ -60,5 +66,5 @@ pub fn challenge2(input: &[&str]) -> usize {
         pos.mov(command);
     }
 
-    return pos.x * pos.depth;
+    pos.x * pos.depth
 }

@@ -2,8 +2,10 @@ fn parse_int(s: &str) -> usize {
     s.parse::<usize>().unwrap()
 }
 
-pub fn main () {
-    let data = include_str!("../../data/1.txt").split("\n").collect::<Vec<_>>();
+pub fn main() {
+    let data = include_str!("../../data/1.txt")
+        .split('\n')
+        .collect::<Vec<_>>();
     println!("Count: {}", challenge1(3, &data));
 }
 
