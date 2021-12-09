@@ -136,7 +136,6 @@ pub fn main() {
                 bingo_boards.remove(*i);
             });
 
-        
         // for bingo_board in &mut bingo_boards {
         //     bingo_board.set(number);
         //     if bingo_board.won() {
