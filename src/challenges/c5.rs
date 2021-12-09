@@ -17,8 +17,7 @@ struct Point {
     y: i32,
 }
 
-impl std::ops::AddAssign<&Point> for Point
-{
+impl std::ops::AddAssign<&Point> for Point {
     fn add_assign(&mut self, other: &Point) {
         self.x += other.x;
         self.y += other.y;
@@ -120,15 +119,13 @@ pub fn main() {
         }
     });
 
-    let map_print = (0..=9).map(|y| {
-        (0..=9).map(|x| {
-            map[(y*10 + x) as usize]
-        }).fold(String::new(), |acc, p| {
-            acc + &format!(" {}", p)
+    let map_print = (0..=9)
+        .map(|y| {
+            (0..=9)
+                .map(|x| map[(y * 10 + x) as usize])
+                .fold(String::new(), |acc, p| acc + &format!(" {}", p))
         })
-    }).fold(String::new(), |acc, p| {
-        acc + &format!("\n{}", p)
-    });
+        .fold(String::new(), |acc, p| acc + &format!("\n{}", p));
     println!("{}", map_print);
 
     println!("{}", points);
