@@ -15,7 +15,7 @@ pub fn main() {
         let new_fishes = buckets[0];
         // Decrease all fish timers by 1 by moving them to the next bucket
         for i in 0..8 {
-            buckets[i] = buckets[i+1];
+            buckets[i] = buckets[i + 1];
         }
 
         // Reset timers of all fishes to 6
